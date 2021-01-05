@@ -7,9 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { SocialLoginComponent } from './social-login/social-login.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ErrorComponent],
+  declarations: [AppComponent, LoginComponent, ErrorComponent, RegistrationComponent, SocialLoginComponent, LogoutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

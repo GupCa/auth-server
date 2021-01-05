@@ -9,7 +9,7 @@ export class AuthService {
 
   login(login: string, password: string): void {
     this.http
-      .post('http://localhost:8080/auth', null, {
+      .post('http://localhost:8080/auth/login', null, {
         params: {
           login,
           password,
