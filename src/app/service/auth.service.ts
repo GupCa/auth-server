@@ -9,9 +9,11 @@ export class AuthService {
 
   login(login: string, password: string): void {
     this.http
-      .post('http://localhost:8080/auth', {
-        login,
-        password,
+      .post('http://localhost:8080/auth', null, {
+        params: {
+          login,
+          password,
+        },
       })
       .subscribe(
         (data) => console.log(data),
