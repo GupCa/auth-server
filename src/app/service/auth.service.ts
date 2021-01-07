@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -9,6 +9,9 @@ export class AuthService {
 
   login(username: string, password: string): void {
     console.log('login post called');
+    const headers: HttpHeaders = new HttpHeaders({
+      'Content-Type': 'text/html',
+    });
 
     this.http
       .post('http://localhost:8080/auth/login', null, {
@@ -16,7 +19,17 @@ export class AuthService {
           username,
           password,
         },
+        headers,
       })
-      .subscribe();
+      .subscribe(
+        (data) => {
+          console.log('success');
+          console.log(data);
+        },
+        (err) => {
+          console.log('error');
+          console.log(err);
+        }
+      );
   }
 }
