@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(): void {
+    console.log('onSubmit called');
+
     this.authService.login(
       this.loginForm.value.name,
       this.loginForm.value.password
