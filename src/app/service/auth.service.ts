@@ -17,15 +17,6 @@ export class AuthService {
           password,
         },
       })
-      .subscribe(
-        (data) => {
-          console.log('success');
-          console.log(data);
-        },
-        (err) => {
-          console.log('error');
-          console.log(err);
-        }
-      );
+      .subscribe();
   }
 }
