@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 // import * as http from 'http';
@@ -24,7 +24,14 @@ export class AuthService {
           console.log('success');
           console.log(data);
         },
-        (err) => {
+        (err: HttpErrorResponse) => {
+          if (err.url) {
+            console.warn(
+              `REDIRECTING MANUALLY TO ${err.url}CAUSE BROWSER CANT`
+            );
+
+            window.location.replace(err.url);
+          }
           console.log('error');
           console.log(err);
         }
