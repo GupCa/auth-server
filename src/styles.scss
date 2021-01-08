@@ -1,3 +1,87 @@
-html {
+@use "sass:color";
+$body-text-color: #e1e5e6;
+$body-background-color: #292d45;
+$accent-color1: #e3ee26;
+$accent-color2: #cb11b1;
+$accent-color3: #3fd4d8;
+$accent-color4: #684cbd;
+$accent-color5: #292d45;
+
+html,
+body {
   height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: $body-background-color;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 1.3rem;
+  color: $body-text-color;
+}
+
+$devices-max-width: (
+  mobile: 425px,
+  tablet: 768px,
+);
+
+@function device-width($device-name) {
+  @return map-get($devices-max-width, $device-name);
+}
+
+.form {
+  &__group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+
+    @media screen and (max-width: device-width(mobile)) {
+      width: 200px;
+    }
+  }
+
+  &__label {
+    font-size: 1rem;
+  }
+
+  &__input {
+  }
+}
+
+.button {
+  box-sizing: border-box;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+  margin: 0;
+  min-width: 64px;
+  line-height: 36px;
+  padding: 0 16px;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.accent-button {
+  color: white;
+  background-color: $accent-color2;
+
+  &:hover {
+    background-color: color.scale($accent-color1, $lightness: -10%);
+  }
+
+  &:active {
+    background-color: color.scale($accent-color1, $lightness: -30%);
+  }
 }

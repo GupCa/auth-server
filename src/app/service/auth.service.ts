@@ -1,8 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-// import * as http from 'http';
-
+const apiUrl = 'http://localhost:8080/auth';
 @Injectable({
   providedIn: 'root',
 })
@@ -16,7 +15,7 @@ export class AuthService {
     formData.append('password', password);
 
     this.http
-      .post('http://localhost:8080/auth/login', formData, {
+      .post(`${apiUrl}/login`, formData, {
         observe: 'response' as 'body',
       })
       .subscribe(
@@ -26,9 +25,7 @@ export class AuthService {
         },
         (err: HttpErrorResponse) => {
           if (err.url) {
-            console.warn(
-              `REDIRECTING MANUALLY TO ${err.url}CAUSE BROWSER CANT`
-            );
+            console.warn(`REDIRECTING MANUALLY TO ${err.url}`);
 
             window.location.replace(err.url);
           }
@@ -36,5 +33,13 @@ export class AuthService {
           console.log(err);
         }
       );
+  }
+
+  googleLogin(): void {
+    this.http
+      .post(`${apiUrl}/oauth2/authorization/google`, null, {
+        observe: 'response' as 'body',
+      })
+      .subscribe();
   }
 }

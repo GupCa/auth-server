@@ -1,0 +1,11 @@
+<div class="container">
+  <div>
+    <button [routerLink]="'/login'">Sign in</button>
+    <button [routerLink]="'/registration'">Sign up</button>
+  </div>
+  <div class="container__panel">
+    <router-outlet></router-outlet>
+  </div>
+  <hr />
+  <app-social-login></app-social-login>
+</div>
