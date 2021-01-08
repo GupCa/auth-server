@@ -46,6 +46,9 @@ $devices-max-width: (
   }
 
   &__input {
+    border: none;
+    outline: none;
+    font: 400 1.2rem Roboto, "Helvetica Neue", sans-serif;
   }
 }
 

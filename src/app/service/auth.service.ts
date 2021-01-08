@@ -36,10 +36,6 @@ export class AuthService {
   }
 
   googleLogin(): void {
-    this.http
-      .post(`${apiUrl}/oauth2/authorization/google`, null, {
-        observe: 'response' as 'body',
-      })
-      .subscribe();
+    window.location.replace(`${apiUrl}/oauth2/authorization/google`);
   }
 }
