@@ -14,7 +14,8 @@ body {
 
 body {
   margin: 0;
-  background-color: $body-background-color;
+  // background-color: $body-background-color;
+
   font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: 1.3rem;
   color: $body-text-color;
@@ -48,6 +49,8 @@ $devices-max-width: (
   &__input {
     border: none;
     outline: none;
+    background-color: #323537;
+    color: aliceblue;
     font: 400 1.2rem Roboto, "Helvetica Neue", sans-serif;
   }
 }
@@ -86,5 +89,18 @@ $devices-max-width: (
 
   &:active {
     background-color: color.scale($accent-color1, $lightness: -30%);
+  }
+}
+
+.tab-button {
+  color: #323537;
+  background-color: $accent-color3;
+
+  &:hover {
+    background-color: color.scale($accent-color3, $lightness: -10%);
+  }
+
+  &:active {
+    background-color: color.scale($accent-color3, $lightness: -30%);
   }
 }
